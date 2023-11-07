@@ -7,4 +7,8 @@ class HomeController < ApplicationController
   def welcome
 
   end
+
+  def team_overview
+    
+  end
 end
