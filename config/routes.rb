@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'pages#welcome'
   get '/registration', to: 'registration#new'
   post '/registration', to: 'registration#create'
-  get '/login', to: 'login#reg'
+  get '/login', to: 'login#new'
   post '/login', to: 'login#create'
   get '/team', to: 'pages#team_overview'
   
