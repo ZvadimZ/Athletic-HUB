@@ -17,7 +17,8 @@ class TeamsController < ApplicationController
   end
 
   def index
-    @teams = @event.teams
+    @teams = Team.where(event_id: params[:event_id])
+    render json: @teams
   end
 
   def apply
@@ -35,6 +36,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :description)
+    params.require(:team).permit(:name, :count)
   end
 end

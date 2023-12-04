@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   get '/events/new', to: 'events#new'
   post '/events', to: 'events#create'
 
-  root 'pages#index'
-  get '/welcome', to: 'pages#welcome'
+  root 'home#index'
+  get '/welcome', to: 'home#welcome'
   get '/registration', to: 'registration#new'
   post '/registration', to: 'registration#create'
   get '/login', to: 'login#new'
   post '/login', to: 'login#create'
-  get '/team', to: 'pages#team_overview'
+  get '/team', to: 'home#team_overview'
   
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

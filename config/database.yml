@@ -22,9 +22,10 @@ default: &default
 development:
   <<: *default
   database: railsproject2023_development
-  user: <%= ENV["RAILSPROJECT2023_DEV_DATABASE_USER"] %>
-  password: <%= ENV["RAILSPROJECT2023_DEV_DATABASE_PASSWORD"] %>
-
+  #user: <%= ENV["RAILSPROJECT2023_DEV_DATABASE_USER"] %>
+  user: postgres
+  #password: <%= ENV["RAILSPROJECT2023_DEV_DATABASE_PASSWORD"] %>
+  password: kattya03
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.

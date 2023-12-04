@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[7.1]
 
       t.string :name, null: false
       t.string :place, null: false
-      t.string :time, null: false
+      t.date :time, null: false
       t.integer :count_members
       t.references :user
       t.string :registration_start_time

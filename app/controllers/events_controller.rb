@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    render json: @events
   end
 
   def show
@@ -44,6 +45,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :date)
+    params.require(:event).permit(:name, :description, :time, :place)
   end
 end
