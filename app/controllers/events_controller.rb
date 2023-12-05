@@ -14,26 +14,12 @@ class EventsController < ApplicationController
 
   def create
     @event_hash = JSON.parse(request.body.read)
-    @name = @event_hash['name']
-    @place = @event_hash['place']
-    @time = @event_hash['time']
-    @teams = @event_hash['teams']
-    @event_members = @event_hash['eventMembers']
-    @user = @event_hash['user']
-
-    if teams.is_a?(Array)
-      @teams = teams.map { |team| team['name'] }.join(', ')
+    @event = Event.new(@event_hash)
+    if @event.save
+      redirect_to @event, notice: 'Мероприятие успешно создано.'
+    else
+      render :new
     end
-
-    if event_members.is_a?(Array)
-      @event_members = event_members.map { |member| member['name'] }.join(', ')
-    end
-    #@event = Event.new(event_params)
-    #if @event.save
-      #redirect_to @event, notice: 'Мероприятие успешно создано.'
-    #else
-      #render :new
-    #end
   end
 
   def edit
