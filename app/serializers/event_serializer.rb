@@ -1,8 +1,7 @@
 class EventSerializer < ActiveModel::Serializer
-    attributes :name, :place, :time, :count_members,
-        :registration_start_time, :registration_close_time, :description
+    attributes :id, :title, :placeUrl, :time, :count_members, :user_id, :text
 
-    has_many :teams
-    
-
+    attribute :is_open do
+      Time.current < :registarion_close_time
+    end
 end
