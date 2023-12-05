@@ -14,24 +14,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "event_members", force: :cascade do |t|
-    t.bigint "event_id"
-    t.bigint "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_event_members_on_event_id"
-    t.index ["team_id"], name: "index_event_members_on_team_id"
-  end
-
   create_table "events", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "place", null: false
-    t.string "time", null: false
+    t.string "title", null: false
+    t.string "placeUrl", null: false
+    t.date "time", null: false
     t.integer "count_members"
     t.bigint "user_id"
     t.string "registration_start_time"
     t.string "registration_close_time"
-    t.text "description"
+    t.text "text"
+    t.string "imagePath"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -48,12 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "count"
-    t.integer "max_count", null: false
-    t.bigint "user_id"
+    t.integer "max_count", default: 0
+    t.integer "capacity", null: false
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_teams_on_user_id"
+    t.index ["event_id"], name: "index_teams_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,4 +57,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "teams", "events"
 end
