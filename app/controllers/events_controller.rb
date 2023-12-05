@@ -29,13 +29,15 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'Мероприятие успешно обновлено.'
     else
-      render :edit
+      render edit
     end
   end
 
   def destroy
-    @event.destroy
-    redirect_to events_url, notice: 'Мероприятие успешно удалено.'
+    if @current_user.id == @event.user_id
+      @event.destroy
+      render json: @event, status: 204
+    end
   end
 
   private
