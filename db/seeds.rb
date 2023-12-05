@@ -8,15 +8,23 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-while User.count < 2
+if !User.any?
   User.create(name: 'Bob', email: 'bobik@email.com')
-  User.create(name: 'Rob', email: 'human_temple@email.com')
+  User.create(name: 'Rob', email: 'peaple_temple@email.com')
+  User.create(name: 'Sten', email: 'stenloh@email.com')
 end
 
-unless Team.any?
-  Team.create(name: 'A', max_count: true)
+if !Team.any?
+  Team.create(name: 'A', max_count: 5, capacity: 0, event_id: 1)
+  Team.create(name: 'B', max_count: 5, capacity: 0, event_id: 1)
 end
 
-unless Event.any?
-  Event.create(name:'football', place:'Коммунистический, 25/1', time: '')
+if !Event.any?
+  Event.create(id: 1, title:'football', placeUrl:'Коммунистический, 25/1', time: '2023-07-07',
+               count_members: 2)
+end
+
+if !TeamMember.any?
+  TeamMember.create(user_id: 2, team_id: 1)
+  TeamMember.create(user_id: 3, team_id: 1)
 end
