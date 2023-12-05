@@ -20,8 +20,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
     t.date "time", null: false
     t.integer "count_members"
     t.bigint "user_id"
-    t.string "registration_start_time"
-    t.string "registration_close_time"
+    t.datetime "registration_start_time"
+    t.datetime "registration_close_time"
     t.text "text"
     t.string "imagePath"
     t.datetime "created_at", null: false
@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "max_count", default: 0
-    t.integer "capacity", null: false
+    t.integer "max_count", null: false
+    t.integer "capacity", default: 0
     t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

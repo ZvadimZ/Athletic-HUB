@@ -15,13 +15,13 @@ if !User.any?
 end
 
 if !Team.any?
-  Team.create(name: 'A', max_count: 5, capacity: 0, event_id: 1)
-  Team.create(name: 'B', max_count: 5, capacity: 0, event_id: 1)
+  Team.create(name: 'A', max_count: 5, capacity: 1, event_id: 1)
+  Team.create(name: 'B', max_count: 5, capacity: 1, event_id: 1)
 end
 
 if !Event.any?
   Event.create(id: 1, title:'football', placeUrl:'Коммунистический, 25/1', time: '2023-07-07',
-               count_members: 2)
+               count_members: 2, user_id: 1)
 end
 
 if !TeamMember.any?
