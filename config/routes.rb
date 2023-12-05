@@ -10,13 +10,8 @@ Rails.application.routes.draw do
   get '/events/new', to: 'events#new'
   post '/events', to: 'events#create'
 
-  root 'pages#index'
-  get '/welcome', to: 'pages#welcome'
   get '/registration', to: 'registration#new'
   post '/registration', to: 'registration#create'
-  get '/login', to: 'login#new'
-  post '/login', to: 'login#create'
-  get '/team', to: 'pages#team_overview'
   get '/team/:event_id', to: 'teams#index'
   post '/team/add_user', to: 'teams#create'
 
