@@ -28,11 +28,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_232928) do
     t.string "place", null: false
     t.string "time", null: false
     t.integer "count_members"
+    t.bigint "user_id"
     t.string "registration_start_time"
     t.string "registration_close_time"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "team_members", force: :cascade do |t|

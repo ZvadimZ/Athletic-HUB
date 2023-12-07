@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: railsproject2023_production
-  username: railsproject2023
-  password: <%= ENV["RAILSPROJECT2023_DATABASE_PASSWORD"] %>
+#  database: athletichub23_production
+#  username: farik
+#  password: <%#= ENV["RAILSPROJECT2023_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
