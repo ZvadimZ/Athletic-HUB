@@ -53,6 +53,8 @@
 
 Спасибо за ваш интерес к нашему проекту, и ждем ваши вклады и предложения по улучшению Athletic Hub!
 
+Дизайн выполнен с помощью Figma: https://www.figma.com/file/iWsp16NQHhaIqutQldyfze/Untitled?type=design&node-id=0%3A1&mode=design&t=aXqoIHALTq3jIvlM-1
+
 ## Running in development mode
 
 Dependencies:
