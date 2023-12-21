@@ -39,6 +39,6 @@
 
 /node_modules
 .env
-.idea
-.parcel-cache
+/.idea
+/.parcel-cache
 

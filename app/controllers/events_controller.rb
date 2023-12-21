@@ -17,9 +17,9 @@ class EventsController < ApplicationController
     @event_hash = JSON.parse(request.body.read)
     @event = Event.new(@event_hash)
     if @event.save
-      redirect_to @event, notice: 'Мероприятие успешно создано.'
+      render json: @event, status: :created
     else
-      render :new
+      render json: @event, status: :conflict
     end
   end
 
