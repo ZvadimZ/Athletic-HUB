@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    render json: @events
   end
 
   def show
@@ -16,9 +17,9 @@ class EventsController < ApplicationController
     @event_hash = JSON.parse(request.body.read)
     @event = Event.new(@event_hash)
     if @event.save
-      redirect_to @event, notice: 'Мероприятие успешно создано.'
+      render json: @event, status: :created
     else
-      render :new
+      render json: @event, status: :conflict
     end
   end
 
@@ -29,13 +30,15 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'Мероприятие успешно обновлено.'
     else
-      render :edit
+      render edit
     end
   end
 
   def destroy
-    @event.destroy
-    redirect_to events_url, notice: 'Мероприятие успешно удалено.'
+    if @current_user.id == @event.user_id
+      @event.destroy
+      render json: @event, status: 204
+    end
   end
 
   private
@@ -45,6 +48,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :date)
+    params.require(:event).permit(:name, :description, :time, :place)
   end
 end

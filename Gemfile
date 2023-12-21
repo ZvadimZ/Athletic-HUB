@@ -8,6 +8,8 @@ gem "rails", "~> 7.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'active_model_serializers'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -54,7 +56,7 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # Use console on exceptions home [https://github.com/rails/web-console]
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
   validates :email, uniqueness: true
 
-  has_many :team
-  has_many :teamMember
-  has_many :event
+  has_many :teamMembers
+  has_many :teams, through: :teamMembers
+
 end
