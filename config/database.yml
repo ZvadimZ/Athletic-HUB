@@ -83,7 +83,4 @@ test:
 #
 production:
   <<: *default
-#  database: athletichub23_production
-#  username: farik
-#  password: <%#= ENV["RAILSPROJECT2023_DATABASE_PASSWORD"] %>
   url: <%= ENV["DATABASE_URL"] %>
