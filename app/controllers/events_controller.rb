@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   def index
     @events = Event.all
@@ -7,10 +7,6 @@ class EventsController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-    @event = Event.new
   end
 
   def create
@@ -23,14 +19,11 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
-    if @event.update(event_params)
-      redirect_to @event, notice: 'Мероприятие успешно обновлено.'
+    if @event.update(event_params) && @event.user_id == @current_user.id
+      render json: @event, status: :ok
     else
-      render edit
+      render json: :@event, status: :unprocessable_entity
     end
   end
 
@@ -48,6 +41,8 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :time, :place)
+    params.require(:event).permit(:title, :placeUrl, :time, :count_members,
+                                  :user_id, :registration_start_time,
+                                  :registration_close_time, :text, :imagePath)
   end
 end
