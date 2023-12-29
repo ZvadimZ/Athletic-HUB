@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # exit on error
+chmod u+x bin/rails
 set -o errexit
 
 bundle install
