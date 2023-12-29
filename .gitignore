@@ -42,3 +42,4 @@
 /.idea
 /.parcel-cache
 
+config/credentials.yml.enc
