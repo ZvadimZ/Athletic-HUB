@@ -55,7 +55,7 @@
 
 Ссылка на фронт: https://github.com/KonstInt/athletic_hub
 
-Дизайн выполнен с помощью Figma: https://www.figma.com/file/iWsp16NQHhaIqutQldyfze/Untitled?type=design&node-id=0%3A1&mode=design&t=aXqoIHALTq3jIvlM-1
+Дизайн выполнен с помощью Figma: https://www.figma.com/file/iWsp16NQHhaIqutQldyfze/Untitled?type=design&node-id=0%3A1&mode=design&t=aXqoIHALTq3jIvlM-1 (В проекте на Figma внесены изменения)
 
 ## Running in development mode
 
